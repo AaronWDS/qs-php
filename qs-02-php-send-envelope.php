@@ -78,7 +78,7 @@ function send_document_for_signing(){
     $config = new DocuSign\eSign\Configuration();
     $config->setHost($basePath);
     $config->addDefaultHeader("Authorization", "Bearer " . $accessToken);
-    $apiClient = new DocuSign\eSign\ApiClient($config);
+    $apiClient = new DocuSign\eSign\Client\ApiClient($config);
     $envelopeApi = new DocuSign\eSign\Api\EnvelopesApi($apiClient);
     $results = $envelopeApi->createEnvelope($accountId, $envelopeDefinition);
     return $results;
